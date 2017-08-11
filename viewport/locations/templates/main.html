@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/fusion.js' %}"></script>
+
+  </head>
+  <body>
+    <script>
+    var csrf_token = "{{ csrf_token }}";
+    var fusionTableId = "{{ fusion_table_id }}";
+    var googleApiKey = "{{ g_api_key }}";
+    var googleClientId = "{{ g_client_id }}";
+    </script>
+
+    <div id="map"></div>
+    <div id="controls">
+        <p><input type="button" id="authbutton" value="Please authorize to access to Google Fusion table" onclick="authUser()"></p>
+        <p><form method="post"><button>Reset data</button></form></p>
+        <p><a class="button" target="_blank" href="https://fusiontables.google.com/DataSource?docid=1bzrKPLJRMLnSUVTyGdQerO0rnlD9ppA-hYjBN1wm">Look at Google Fusion table</a></p>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <ol id="addr"></ol>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ g_api_key }}&callback=initMap"></script>
+    <script async defer src="https://apis.google.com/js/client.js">
+    </script>
+
+
+
+
+  </body>
+</html>
